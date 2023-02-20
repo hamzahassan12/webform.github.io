@@ -10,7 +10,7 @@
     <body>
         <div class="container">
         <div class="Title">Registration</div>
-            <form action="form.php" method="post">
+            <form action="form.php" method="post" name="google-sheet">
                 <div class="user_detail">
                      <div class="input">
                         <span class="detail">Caller id</span>
@@ -114,5 +114,15 @@
                 <button name="submit">submit</button>
             </div>
             </form>  
+        <script>
+                const scripturl ='https://script.google.com/macros/s/AKfycbx5OLOHlltiMkeSuxNtx6-hBFd53dv1DJtBKT27ilYZLODKPYpfF8nFd-HpNhE57Eg-0g/exec'
+                const form = document.forms['google-sheet']
+                form.addEventListener('submit', e=>{
+                    e.preventDefault()
+                    fetch(scripturl,{ method: 'POST', body: new FormData(form)})
+                    .then(response => alert(" data enter successfully"))
+                    .catch(error => consloe.error('Error!', error.message))
+                })
+            </script>
     </body>
 </html>
