@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Student form</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+        <div class="container">
+        <div class="Title">Registration</div>
+            <form action="form.php" method="post" name="google-sheet">
+                <div class="user_detail">
+                     <div class="input">
+                        <span class="detail">Caller id</span>
+                        <input type="tel" name="caller_id" id="output" required>
+                        <script>
+                            var val = document.getElementById("output").value = "+1";
+                        </script>
+                    </div>
+                    <div class="input">
+                        <span class="detail">phone</span>
+                        <input type="tel" name="phone" required>
+                    </div>
+                    <div class="input">
+                        <span class="detail">First Name</span>
+                        <input type="text" name="First_Name" required>
+                    </div>
+                    <div class="input">
+                        <span class="detail">Last Name</span>
+                        <input type="text" name="Last_Name" required>
+                    </div>
+                    <div class="input">
+                        <span class="detail">Address</span>
+                        <input type="text" name="Address" required>
+                    </div>
+                    <div class="input">
+                        <span class="detail">City</span>
+                        <input type="text" name="City" required>
+                    </div>
+                    <div class="input">
+                        <span class="detail">state</span>
+                        <select name="state">    
+                            <option value="AL">Alabama</option>
+                            <option value="AK">AK</option>
+                            <option value="AZ">AZ</option>
+                            <option value="AR">AR</option>
+                            <option value="CA">CA</option>
+                            <option value="CO">CO</option>
+                            <option value="CT">CT</option>
+                            <option value="DE">DE</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="HI">HI</option>
+                            <option value="ID">ID</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="IA">IA</option>
+                            <option value="KS">KS</option>
+                            <option value="KY">KY</option>
+                            <option value="LA">LA</option>
+                            <option value="ME">ME</option>
+                            <option value="MD">MD</option>
+                            <option value="MA">MA</option>
+                            <option value="MI">MI</option>
+                            <option value="MN">MN</option>
+                            <option value="MS">MS</option>
+                            <option value="MO">MO</option>
+                            <option value="MT">MT</option>
+                            <option value="NE">NE</option>
+                            <option value="NV">NV</option>
+                            <option value="NH">NH</option>
+                            <option value="NJ">NJ</option>
+                            <option value="NM">NM</option>
+                            <option value="NY">NY</option>
+                            <option value="NC">NC</option>
+                            <option value="ND">ND</option>
+                            <option value="OH">OH</option>
+                            <option value="OK">OK</option>
+                            <option value="OR">OR</option>
+                            <option value="PA">PA</option>
+                            <option value="RI">RI</option>
+                            <option value="SC">SC</option>
+                            <option value="SD">SD</option>
+                            <option value="TN">TN</option>
+                            <option value="TX">TX</option>
+                            <option value="UT">UT</option>
+                            <option value="VT">VT</option>
+                            <option value="VA">VA</option>
+                            <option value="WA">WA</option>
+                            <option value="WV">WV</option>
+                            <option value="WI">WI</option>
+                            <option value="WY">WY</option>  
+                        </select>
+                    </div>
+                    <div class="input">
+                        <span class="detail">Zip code</span>
+                        <input type="text" name="Zip_code" required>
+                    </div>
+                    <div class="input">
+                        <span class="detail">Date of birth</span>
+                        <input type="text" name="Date_of_birth"  required>
+                    </div>
+                    <div class="input">
+                        <span class="detail">Email</span>
+                        <input type="email" name="Email" required>
+                    </div>
+                    <div class="input">
+                        <span class="detail">Ip address</span>
+                        <input type="text" name="Ip_address" required>
+                    </div>
+                </div>
+                <button name="submit">submit</button>
+            </div>
+            </form>  
+            <script>
+                const scripturl ='https://script.google.com/macros/s/AKfycbx5OLOHlltiMkeSuxNtx6-hBFd53dv1DJtBKT27ilYZLODKPYpfF8nFd-HpNhE57Eg-0g/exec'
+                const form = document.forms['google-sheet']
+                form.addEventListener('submit', e=>{
+                    e.preventDefault()
+                    fetch(scripturl,{ method: 'POST', body: new FormData(form)})
+                    .then(response => alert(" data enter successfully"))
+                    .catch(error => consloe.error('Error!', error.message))
+                })
+            </script> 
+    </body>
+</html>
